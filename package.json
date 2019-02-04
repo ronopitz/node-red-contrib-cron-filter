@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-cron-filter",
+  "version": "0.1.0",
+  "description": "Filters messages by comparing the CRON entry with the message arrival time of the message at the node.",
+  "dependencies": {
+    "cron-parser": "^1.1.0"
+  },
+  "keywords": [
+    "node-red",
+    "cron filter"
+  ],
+  "node-red": {
+    "nodes": {
+      "node-red-contrib-cron-filter": "cron-filter/cron-filter.js"
+    }
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronopitz/node-red-contrib-cron-filter.git"
+  },
+  "author": "Ron Opitz <ron@ronopitz.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ronopitz/node-red-contrib-cron-filter/issues"
+  },
+  "homepage": "https://github.com/ronopitz/node-red-contrib-cron-filter#readme"
+}

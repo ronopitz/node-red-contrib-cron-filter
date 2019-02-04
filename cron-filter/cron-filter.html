@@ -1,0 +1,58 @@
+<script type="text/javascript">
+    RED.nodes.registerType('cron-filter',{
+        category: "function",
+        icon: "cron-filter.png",
+        color: "#E2D96E",
+        inputs: 1,
+        outputs: 1,
+        defaults: {
+            name: { value: "" },
+            crontab: { value: "* * * * * *", required: true }
+        },
+        label: function() {
+            return this.name || "CRON Filter"
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="cron-filter">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-crontab"><i class="fa fa-clock-o"></i> CRON Expression</label>
+        <input type="text" id="node-input-crontab" placeholder="CRON">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="cron-filter">
+  <p>Filters messages by comparing the CRON entry with the message arrival time of the message at the node.</p>
+  <p><strong>Input</strong></p>
+  <p>No special fields are required.</p>
+  <p><strong>Output</strong></p>
+  <p>Tune the arrival time of the message with the CRON entry. The message is forwarded. All other messages are discarded.<br>
+  No changes are made to the message.</p>
+  <p><strong>CRON Entry</strong></p>
+  <p><em>Structure</em></p>
+  <p>The following fields are required and delimited by space.</p>
+  <pre class="language-text">Seconds Minutes Hours Day_of_Month Month Day_of_Week
+  </pre>
+  <p><em>Patterns</em></p>
+  <p>Asterisk. E.g. *<br>
+  Ranges. E.g. 1-3,5<br>
+  Steps. E.g. */2</p>
+  <p><em>Ranges</em></p>
+  <ul>
+  <li>Seconds: 0-59</li>
+  <li>Minutes: 0-59</li>
+  <li>Hours: 0-23</li>
+  <li>Day of Month: 1-31</li>
+  <li>Months: 0-11 (Jan-Dec)</li>
+  <li>Day of Week: 0-6 (Sun-Sat)</li>
+  </ul>
+  <p><em>Example</em></p>
+  <p>Working hours (Monday to Friday)</p>
+  <pre class="language-text">* * 7-18 * * 1-5
+  </pre>
+</script>
